@@ -8,13 +8,24 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/duane/Documents/Travail VS Code/Challenge48h/48h-/src/Controller/ProfilController.php'|file_link(0) }}">src/Controller/ProfilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/duane/Documents/Travail VS Code/Challenge48h/48h-/templates/profil/index.html.twig'|file_link(0) }}">templates/profil/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<section class="row product">
+		{% for profils in profil %}
+				<product class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+                <h2>{{ products.nom }}</h2>
+				<div class="description">
+				<br>
+					<img src="{{ products.image }}" alt="Image de {{ products.nom }}" class="img-fluid">
+					<br>
+					<div>Description : {{ products.description | raw }}</div>
+					
+					<br>
+					
+					<div>
+					<div>Prix : {{ products.prix | raw }}</div>
+					</div>
+					<a href="{{ path('panier_add', {'id' : products.id}) }}" class="btn btn-primary mt-2">Ajouter au panier</a>
+				</div>
+			</product>
+		{% endfor %}
+	</section>
 {% endblock %}
