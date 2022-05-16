@@ -23,14 +23,14 @@ class EvenementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $data = $form->get('recherche')->getData(); 
-            $product = $repo->getEvenementByTitre($data);
+            $evenement = $repo->getEvenementByTitre($data);
         } else
         {
-            $product = $repo->findAll();
+            $evenement = $repo->findAll();
         }
 
-        return $this->render('product/index.html.twig', [
-            'product' => $product,
+        return $this->render('evenement/index.html.twig', [
+            'evenement' => $evenement,
             'formRecherche' => $form->createView()
         ]);
     }
