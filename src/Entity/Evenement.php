@@ -27,10 +27,10 @@ class Evenement
     #[ORM\OneToMany(mappedBy: 'evenement_id', targetEntity: Commentaire::class)]
     private $commentaires;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'evenements')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'evenements')]
     private $user_id;
 
-    #[ORM\ManyToOne(targetEntity: categorie::class, inversedBy: 'evenements')]
+    #[ORM\ManyToOne(targetEntity: Categorie::class, inversedBy: 'evenements')]
     private $categorie_id;
 
     public function __construct()
@@ -109,24 +109,24 @@ class Evenement
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(?user $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getCategorieId(): ?categorie
+    public function getCategorieId(): ?Categorie
     {
         return $this->categorie_id;
     }
 
-    public function setCategorieId(?categorie $categorie_id): self
+    public function setCategorieId(?Categorie $categorie_id): self
     {
         $this->categorie_id = $categorie_id;
 

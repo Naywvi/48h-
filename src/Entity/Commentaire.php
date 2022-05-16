@@ -19,7 +19,7 @@ class Commentaire
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'commentaires')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commentaires')]
     private $user_id;
 
     #[ORM\ManyToOne(targetEntity: evenement::class, inversedBy: 'commentaires')]
@@ -54,12 +54,12 @@ class Commentaire
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(?user $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 
