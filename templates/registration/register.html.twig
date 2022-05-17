@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<div class = "container" >
+	
+	<h1>Register</h1>
+	<p>
+
+
+	<div class="input-register" style="margin-bottom:25px;,gap:1rem;">{{ form_start(registrationForm) }}</div>
+	<br>
+	<div class="input-register2" style="margin: 10px 10px 10px 10px">{{ form_row(registrationForm.email) }}</div>
+	<div class="input-register3" style="margin: 10px 10px 10px 10px">{{ form_row(registrationForm.plainPassword) }}</div>
+	{# {{ form_row(registrationForm.firstname) }}
+		{{ form_row(registrationForm.lastname) }} #}
+			<div class="input-register3" style="margin-bottom:25px;">{{ form_row(registrationForm.image) }}</div>
+	
+
+	<button type="submit" class="btn btn-outline-success">Register</button>
+	{{ form_end(registrationForm) }}
+	</div>
+	</p>
+	<style>
+	form{
+		display:flex;
+		justify-content:row;
+	}
+		.container{
+			text-align: center;
+		}
+		.input-register{
+			margin-left:100px;
+		}
+		.input-register2{
+			margin: 10px 10px 10px 10px;
+		}
+		.input-register3{
+			margin-left:100px;
+		}
+	</style>
+{% endblock %}
