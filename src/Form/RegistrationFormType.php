@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            // ->add('firstname')
+            ->add('username')
             // ->add('lastname')
             ->add('image',  FileType::class, ['required' => false])
             ->add('plainPassword', RepeatedType::class, [

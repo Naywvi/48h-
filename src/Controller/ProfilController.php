@@ -14,10 +14,12 @@ class ProfilController extends AbstractController
 
 
     #[Route('/profil', name: 'app_profil')]
-    public function index(SessionInterface $session, UserRepository $userRepository)
+    public function index(UserRepository $userRepository)
     {
+        $profil = $userRepository->findAll();
+
         return $this->render('profil/index.html.twig', [
-            'profil' => $userRepository,
+            'profil' => $profil,
         ]);
     }
 }

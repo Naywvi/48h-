@@ -6,7 +6,10 @@
 {% block body %}
 	<style></style>
 
-	{# {{ form_start(formRecherche) }}
+	<div align="right" style = "vertical-align: top"><a href="/evenement/new" >Ajouter un evenement</a></div>
+
+
+	{{ form_start(formRecherche) }}
 
 	{{ form_widget(formRecherche.recherche, {
 	attr: {
@@ -16,7 +19,7 @@
 
 	<button type="submit" class="btn btn-primary mt-2">Rechercher</button>
 
-	{{ form_end(formRecherche) }} #}
+	{{ form_end(formRecherche) }}
 
 		{% for evenements in evenement %}
 			<section class="wrapper-card" style="display: flex;justify-content: center;">

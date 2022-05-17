@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Evenement;
 use App\Form\EvenementType;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\RechercheType;
 
 class EvenementController extends AbstractController
 {
@@ -18,9 +19,9 @@ class EvenementController extends AbstractController
      */
     public function index(EvenementRepository $repo, Request $request): Response
     {
-        return $this->render('evenement/index.html.twig', [
-            'evenement' => $repo,
-        ]);
+        // return $this->render('evenement/index.html.twig', [
+        //     'evenement' => $repo,
+        // ]);
 
         $form = $this->createForm(RechercheType::class);
         $form->handleRequest($request);
