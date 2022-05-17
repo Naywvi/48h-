@@ -18,19 +18,21 @@
     </ul>
 </div>
 	<section class="row product">
+	<section class="row profil">
 		{% for profils in profil %}
-				<product class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
-                <h2>{{ products.nom }}</h2>
-				<div class="description">
+				<profil class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+                <h2>Username : {{ profil.username }}</h2>
+				<div class="profil">
 				<br>
-					<img src="{{ products.image }}" alt="Image de {{ products.nom }}" class="img-fluid">
+					<img src="{{ profil.image }}" class="img-fluid">
 					<br>
-					<div>Description : {{ products.description | raw }}</div>
-					
+					<div>Email : {{ profil.email }}</div>
 					<br>
-					
 					<div>
-					<div>Prix : {{ products.prix | raw }}</div>
+					<div>Vos commentaire : {{ profil.commentaire_id | raw }}</div>
+					</div>
+                    <div>
+					<div>Vos evenement : {{ profil.evenement_id | raw }}</div>
 					</div>
 					<a href="{{ path('panier_add', {'id' : products.id}) }}" class="btn btn-primary mt-2">Ajouter au panier</a>
 				</div>

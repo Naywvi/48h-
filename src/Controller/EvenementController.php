@@ -30,7 +30,7 @@ class EvenementController extends AbstractController
             $evenement = $repo->findAll();
         }
 
-        return $this->render('evenement/show.html.twig', [
+        return $this->render('evenement/index.html.twig', [
             'evenement' => $evenement,
             'formRecherche' => $form->createView()
         ]);
