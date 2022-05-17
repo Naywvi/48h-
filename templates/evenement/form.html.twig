@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+    Modification de l'evenement
+{% else %}
+Création de l'evenement    
+{% endif %}
+</h1>
+
+{# {{ form(formArticle) }} #}
+{# form() permet d'afficher un formulaire #}
+{# symfony est capable de décider quel type de champ afficher en fonction du type de la propriété #}
+
+{{ form_start(formEvenement) }}
+
+
+{{ form_row(formEvenement.titre, {
+    'label': "Titre", 
+    'attr': {
+        'placeholder': "Titre de l'evenement"
+    }
+}) }}
+
+{{ form_row(formEvenement.description, {
+    'label': "Description",
+    'attr':{
+        'placeholder': "Desciption de l'evenement"
+    }
+}) }}
+
+{{ form_row(formEvenement.image) }}
+
+{# {{ form_row(formEvenement.categorie_id, {
+    label: "titre"
+}) }} #}
+
+<button type="submit" class="btn btn-primary">
+{% if editMode %}
+Enregistrer les modifications
+{% else %}
+    Ajouter l'evenement
+{% endif %}
+</button>
+
+{{ form_end(formEvenement) }}
+
+{% endblock %}

@@ -1,24 +1,123 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-        <div>Ceci est un header</div>
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #} {% block stylesheets %} {{ encore_entry_link_tags('app') }} {% endblock %} {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}
+    {# <div>Ceci est un header</div> #}
+    <style>
+        .fontF {
+            Padding-top: 20px;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+        }
+        
+        .leftF {
+            display: flex;
+            margin-left: 50px;
+        }
+        
+        .rightF {
+            display: flex;
+            flex-direction: row-reverse;
+            margin-right: 50px;
+        }
+        
+        .social a {
+            text-decoration: none;
+        }
+        
+        nav {
+            width: 100%;
+            margin: 0px auto 40px auto;
+            background-color: white;
+            position: sticky;
+            top: 0px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+        }
+        
+        nav li {
+            float: left;
+            width: 25%;
+            /*100% divisé par le nombre d'éléments de menu*/
+            text-align: center;
+            /*Centre le texte dans les éléments de menu*/
+        }
+        /*Evite que le menu n'ait une hauteur nulle*/
+        
+        nav ul::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        nav a {
+            display: block;
+            /*Toute la surface sera cliquable*/
+            text-decoration: none;
+            color: black;
+            border-bottom: 2px solid transparent;
+            /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+            padding: 10px 0px;
+            /*Agrandit le menu et espace la bordure du texte*/
+        }
+        
+        nav a:hover {
+            color: orange;
+            border-bottom: 2px solid gold;
+        }
+    </style>
+</head>
+<header>
 
-    <footer>
-    <div>Ceci est un footer</div>
-    </footer>
+    <nav>
+        <ul>
+            <li><a href="../home.html">Event Finder</a></li>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="#about">Search</a></li>
+            <li><a href="../templates/login.html">Login</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+<footer>
+    <div class="fontF">
+        <div class="leftF">
+            <p>Copyright © Event finder 2022</p>
+        </div>
+        <div class="rightF">
+            {# <ul class="social">
+                 <li>
+                    <p>Follow Us !</p><br>
+                </li> 
+
+                 <p>
+                    <img class="imageF" src="assets/images/mail.jpg" alt="" width="25" height="25">luccharlopeau@gmail.com
+                    <a href="https://github.com/Luxchar"><img src="assets/images/git.png" alt="" width="25" height="25"> Github Luc</a>
+                    <a href="https://www.linkedin.com/in/luc-charlopeau-6a15aa228/"><img src="assets/images/linkedin.png" alt="" width="25" height="25"> Linked in Luc</a>
+                </p>
+    
+    
+    
+                <p>
+                    <img class="imageF" src="assets/images/mail.jpg" alt="" width="25" height="25">Nagib.Lakhdari.pro@gmail.com
+                    <a href="https://github.com/Naywvi"><img src="assets/images/git.png" alt="" width="25" height="25"> Github Nagib</a>
+                    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiMh4rVpp31AhVBxhoKHdpJBZQQFnoECAMQAQ&url=https%3A%2F%2Ffr.linkedin.com%2Fin%2Fnagib-lakhdari-20234a15a&usg=AOvVaw3igOTyEHEXdA_hGt9kaiW1"><img src="assets/images/linkedin.png" alt="" width="25" height="25"> Linked in Nagib</a>
+                </p><br>  #}
+
+            {# </ul> #}
+        </div>
+    </div>
+</footer>
+
 </html>
