@@ -11,11 +11,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-<<<<<<< HEAD
 class User extends AbstractType implements PasswordAuthenticatedUserInterface
-=======
-class User
->>>>>>> a4835a68f10c063b7ad7d3c12bfe2fc4b5830cef
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

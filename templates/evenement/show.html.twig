@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EvenementController!{% endblock %}
+
+{% block body %}
+
+<section class="row product">
+        <section class="row product">
+            <article class="col-md-6 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+                <h2>{{ evenement.titre }}
+                </h2>
+                {# <div class="metadata">
+                    {{ product.categorie_id }}
+                    </div> #}
+                <div class="content">
+                    <img
+                    src="{{ asset('image/evenement/' ~ evenement.image) }}" alt="">
+                    {# asset() permet de récupérer un fichier dans le dossier public\ #}
+                    {{ evenement.description|raw }}
+                </div>
+
+            </article>
+        </section>
+
+    {% endblock %}

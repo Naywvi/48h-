@@ -7,4 +7,18 @@
     
 </style>
 
+<section class="row product">
+        {% for evenements in evenement %}
+            <product class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+                <h2>{{ evenements.titre }}</h2>
+                <div class="description">
+                    <br>
+                        <img src="{{ evenements.image }}" alt="Image de {{ evenements.titre }}" class="img-fluid">
+                        <br>
+                        <div>Description : {{ evenements.description }}</div>
+                    </div>
+            </product>
+        {% endfor %}
+        <a href="/evenement/show.html.twig">Prout</a>
+    </section>
 {% endblock %}

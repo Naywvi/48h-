@@ -7,6 +7,7 @@ use App\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Evenement;
 
 class EvenementController extends AbstractController
 {
@@ -23,15 +24,23 @@ class EvenementController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $data = $form->get('recherche')->getData(); 
-            $product = $repo->getEvenementByTitre($data);
+            $evenement = $repo->getEvenementByTitre($data);
         } else
         {
-            $product = $repo->findAll();
+            $evenement = $repo->findAll();
         }
 
-        return $this->render('product/index.html.twig', [
-            'product' => $product,
+        return $this->render('evenement/show.html.twig', [
+            'evenement' => $evenement,
             'formRecherche' => $form->createView()
+        ]);
+    }
+
+    #[Route('/evenement/show', name: 'show_evenement')]
+    public function show (Evenement $evenement)
+    {
+        return $this->render('evenement/show.html.twig', [
+            'evenement' => $evenement,
         ]);
     }
 }
